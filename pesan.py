@@ -22,11 +22,13 @@ def context():
 def test_pesan_tiket(context):
     stasiun_asal = context.find_element(By.ID, 'select2-origination2-container')
     stasiun_asal.click()
+    time.sleep(5)
     pyautogui.typewrite('Pasar Senen')
     pyautogui.press('enter')
 
     stasiun_tujuan = context.find_element(By.ID, 'select2-destination2-container')
     stasiun_tujuan.click()
+    time.sleep(5)
     pyautogui.typewrite('lempuyangan (LPN)')
     pyautogui.press('enter')
 
