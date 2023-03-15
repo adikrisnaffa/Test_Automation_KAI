@@ -6,7 +6,7 @@ import time
 import pytest
 
 options = webdriver.ChromeOptions()
-options.headless = True
+# options.headless = True
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
 @pytest.fixture
