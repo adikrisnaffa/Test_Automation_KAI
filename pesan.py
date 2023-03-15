@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
-import pyautogui
 import pytest
 
 options = webdriver.ChromeOptions()
@@ -24,14 +23,16 @@ def test_pesan_tiket(context):
     stasiun_asal = context.find_element(By.ID, 'select2-origination2-container')
     stasiun_asal.click()
     time.sleep(5)
-    pyautogui.typewrite('Pasar Senen')
-    pyautogui.press('enter')
+    input_asal = context.find_element(By.CLASS_NAME, 'select2-search__field')
+    input_asal.send_keys('Pasar Senen')
+    input_asal.send_keys(Keys.ENTER)
 
     stasiun_tujuan = context.find_element(By.ID, 'select2-destination2-container')
     stasiun_tujuan.click()
     time.sleep(5)
-    pyautogui.typewrite('lempuyangan (LPN)')
-    pyautogui.press('enter')
+    input_tujuan = context.find_element(By.CLASS_NAME, 'select2-search__field')
+    input_tujuan.send_keys('Lempuyangan (LPN)')
+    input_tujuan.send_keys(Keys.ENTER)
 
     tanggal = context.find_element(By.ID, 'departure_dateh2')
     tanggal.click()
